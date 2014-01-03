@@ -16,7 +16,7 @@ What's New
 
 - Query content providers with more complex SQL queries
 
-- Share results
+- Save & Share query results as HTML page
 
 ### v1.0.0:
 
@@ -25,7 +25,7 @@ What's New
 Description
 -----------
 
-This tool helps developers to discover and query content providers.
+This app helps developers to discover and query content providers.
 You can add and delete your own URIs manually or search for all available content providers on the device.
 
 App permissions are set generously to provide maximum compatibility.
