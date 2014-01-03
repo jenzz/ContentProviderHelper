@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/preferences_category_theme" >
+        <ListPreference
+            android:defaultValue="@string/preferences_default_theme"
+            android:entries="@array/themes"
+            android:entryValues="@array/themes"
+            android:key="@string/preferences_key_theme"
+            android:summary="@string/preferences_theme_summary"
+            android:title="@string/preferences_theme_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_category_miscellaneous" >
+        <CheckBoxPreference
+            android:defaultValue="@string/preferences_default_acra_enabled"
+            android:key="@string/preferences_key_acra_enabled"
+            android:summaryOff="@string/preferences_acra_disabled"
+            android:summaryOn="@string/preferences_acra_enabled"
+            android:title="@string/preferences_acra_title" />
+
+        <Preference
+            android:key="@string/preferences_key_build_version"
+            android:title="@string/preferences_build_version" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_category_source_code" >
+        <Preference
+            android:key="@string/preferences_key_github"
+            android:summary="@string/preferences_github_summary"
+            android:title="@string/preferences_github_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

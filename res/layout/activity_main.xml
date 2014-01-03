@@ -1,0 +1,121 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <Spinner
+        android:id="@+id/spinner_content_providers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <RelativeLayout
+        android:id="@+id/inner_layout_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_content_providers" >
+
+        <Button
+            android:id="@+id/button_show_types"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_column_types" />
+
+        <Button
+            android:id="@+id/button_uncheck_all"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/button_check_all"
+            android:text="@string/uncheck_all" />
+
+        <Button
+            android:id="@id/button_check_all"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/check_all" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/column_count_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/inner_layout_buttons"
+        android:layout_marginRight="4dp"
+        android:paddingLeft="5dp"
+        android:text="@string/columns"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/column_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inner_layout_buttons"
+        android:layout_toRightOf="@id/column_count_label"
+        android:paddingBottom="5dp"
+        android:text="@string/dash" />
+
+    <ListView
+        android:id="@+id/list_view_columns"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/inner_layout_footer"
+        android:layout_below="@id/column_count" />
+
+    <LinearLayout
+        android:id="@id/inner_layout_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="5dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/button_query"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/query" />
+
+            <Button
+                android:id="@+id/button_query_with_filter"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/query_with_filter" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:text="@string/rows"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dash" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

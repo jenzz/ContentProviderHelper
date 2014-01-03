@@ -1,0 +1,53 @@
+<resources>
+
+    <string name="app_name">Content Provider Helper</string>
+    <string name="check_all">Check All</string>
+    <string name="uncheck_all">Uncheck All</string>
+    <string name="query">Query</string>
+    <string name="query_with_filter">Query With Filter</string>
+    <string name="show_column_types">Show Column Types</string>
+    <string name="hide_column_types">Hide Column Types</string>
+    <string name="content_provider">Content Provider:</string>
+    <string name="filter">Filter:</string>
+    <string name="type">Type:</string>
+    <string name="columns">Columns:</string>
+    <string name="rows">Rows:</string>
+    <string name="info">Info</string>
+    <string name="ok">OK</string>
+    <string name="blob">- BLOB -</string>
+    <string name="error">- ERROR -</string>
+    <string name="none">None</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    <string name="unknown">Unknown</string>
+    <string name="add_content_provider">Add Content Provider</string>
+    <string name="delete_content_providers">Delete Content Providers</string>
+    <string name="no_custom_content_providers">- No custom content providers available -</string>
+    <string name="settings">Settings</string>
+    <string name="loading_columns">Loading columns&#8230;</string>
+    <string name="searching_content_providers">Searching content providers&#8230;</string>
+    <string name="loading_data">Loading data&#8230;</string>
+    <string name="api_level">Sorry, API Level 11 or higher is required to display column types. Your current API Level is %s.</string>
+    <string name="data_successfully_loaded">Data successfully loaded</string>
+    <string name="dialog_pre_defined_text">content://</string>
+    <string name="insert_content_provider_manually">Insert content provider manually:</string>
+    <string name="or_search_for_available_content_providers">Or search for available content providers:</string>
+    <string name="content_provider_added">Content provider successfully added</string>
+
+    <plurals name="content_provider_deleted">
+        <item quantity="one">1 content provider successfully deleted</item>
+        <item quantity="other">%d content providers successfully deleted</item>
+    </plurals>
+
+    <string name="uri_already_exists">Content provider already exists</string>
+    <string name="mark_strings">Note: Enclose Strings in single quotes!</string>
+    <string name="invalid_content_provider">Invalid content provider</string>
+    <string name="search">Search</string>
+    <string name="where">Where:</string>
+    <string name="sort_by">Sort by:</string>
+    <string name="limit">Limit:</string>
+    <string name="dash">-</string>
+
+</resources>
