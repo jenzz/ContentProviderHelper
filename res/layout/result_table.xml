@@ -48,7 +48,7 @@
             android:id="@+id/rows_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/filter_label"
+            android:layout_below="@id/filter"
             android:layout_marginRight="4dp"
             android:text="@string/rows"
             android:textStyle="bold" />
@@ -57,7 +57,7 @@
             android:id="@+id/rows"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/filter_label"
+            android:layout_below="@+id/filter"
             android:layout_toRightOf="@id/rows_label"
             android:text="@string/dash" />
     </RelativeLayout>
