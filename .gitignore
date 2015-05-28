@@ -66,3 +66,4 @@ local.properties
 .buildpath
 .idea
 build
+.gradle

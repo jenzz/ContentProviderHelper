@@ -1,11 +1,8 @@
 package com.jensdriller.contentproviderhelper.ui.activity;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.ActionProvider;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.ShareActionProvider;
 import android.text.TextUtils;
@@ -85,7 +82,7 @@ public class ResultActivity extends BaseActivity implements ExceptionListener {
 		}
 
 		String filter = buildFilterLabel(where, sortBy);
-		String filterLabel = TextUtils.isEmpty(filter) ? getString(R.string.none) : filter.toString();
+		String filterLabel = TextUtils.isEmpty(filter) ? getString(R.string.none) : filter;
 		txtFilter.setText(filterLabel);
 
 		if (savedInstanceState == null) { // First load, kick off loading task
@@ -114,14 +111,11 @@ public class ResultActivity extends BaseActivity implements ExceptionListener {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.result_activity, menu);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            createShareMenue(menu);
-        }
+        createShareMenue(menu);
 
 		return super.onCreateOptionsMenu(menu);
 	}
 
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void createShareMenue(Menu menu) {
 
         MenuItem actionItem = menu.findItem(R.id.share);
