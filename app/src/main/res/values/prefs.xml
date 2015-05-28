@@ -14,7 +14,7 @@
     <string name="preferences_theme_light">Light</string>
     <string name="preferences_theme_light_dark_action_bar">Light (Dark ActionBar)</string>
     <string name="preferences_theme_dark">Dark</string>
-    <string name="preferences_acra_title">Send crash reports</string>
+    <string name="preferences_acra_title">Copy crash reports to Clipboard</string>
     <string name="preferences_acra_enabled">Yes, I support the developer! :-)</string>
     <string name="preferences_acra_disabled">No, I do NOT support the developer! :-(</string>
     <string name="preferences_default_acra_enabled">true</string>

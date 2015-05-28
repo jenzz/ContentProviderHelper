@@ -7,8 +7,8 @@ android {
         applicationId 'com.jensdriller.contentproviderhelper'
         minSdkVersion 8
         targetSdkVersion 21
-        versionCode 2
-        versionName "1.1.0"
+        versionCode 3
+        versionName "1.2.0"
     }
     buildTypes {
         release {
@@ -28,5 +28,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:21.0.2'
     compile 'com.android.support:appcompat-v7:21.0.2'
-	compile 'ch.acra:acra:4.6.2'
+	/// compile 'ch.acra:acra:4.6.2'
 }
