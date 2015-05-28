@@ -31,6 +31,7 @@ proguard/
 *.ipr
 *.iws
 .idea/	
+app/build/
 
 
 #########################
@@ -63,3 +64,5 @@ local.properties
 
 # PDT-specific
 .buildpath
+.idea
+build
