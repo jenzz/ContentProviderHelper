@@ -4,10 +4,12 @@ Content Provider Helper
 Description
 -----------
 
-Content Provider Helper or CPH is a tool for developers to
-to interactivly discover and query [android-s content providers](https://developer.android.com/guide/topics/providers/content-providers.html).
+With Content Provider Helper (or CPH) a developer can interactivly
+discover and query the data of
+[android-s content providers](https://developer.android.com/guide/topics/providers/content-providers.html)
+similar to querying a database table.
 
-You can add and delete your own URIs manually or search for all available content providers on the device.
+You can add and delete your own content: URIs manually or search for all available content providers on the device.
 
 App permissions are set generously to provide maximum compatibility.
 
@@ -81,6 +83,7 @@ What's New
 * App is now under [MIT License](https://raw.githubusercontent.com/jenzz/ContentProviderHelper/master/LICENSE)
 * updated build tools 24.0.2
 * changed appID to de.k3b.android.contentproviderhelper
+* restore last used contentprovider+Fields on app load
 
 ### v1.2.0: (20150529 not published due to unknown license)
 

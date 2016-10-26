@@ -7,9 +7,11 @@ import java.util.List;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +42,12 @@ public class MainActivity extends BaseActivity implements OnClickListener, OnIte
 
 	private static final String BUNDLE_COLUMNS = "columns";
 	private static final String TAG_LOAD_COLUMNS_DIALOG = "loadColumnsDialog";
+
+	private static final String STATE_CURRENTPATH = "lastProviderUri";
+	private static final String STATE_SELECTED_COLUMNS = "lastSelectedColums";
+
+	private Uri mLastSelecedUri = null;
+	private String[] mLastSelectedColums = null;
 
 	private Button mButtonTypes;
 	private Button mButtonUncheckAll;
@@ -143,8 +151,21 @@ public class MainActivity extends BaseActivity implements OnClickListener, OnIte
 		mListView.setAdapter(mAdapterColumns);
 
 		if (savedInstanceState == null) { // First load, kick off search for 1st spinner item
-			Uri uri = Uri.parse(mProviderUris.get(0));
-			loadColumns(uri);
+
+			SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+			String lastSelectedColums = sharedPref.getString(STATE_SELECTED_COLUMNS, "");
+			mLastSelectedColums = (STATE_SELECTED_COLUMNS != null) ? lastSelectedColums.split("[, ]") : null;
+
+			String lastUri = sharedPref.getString(STATE_CURRENTPATH, mProviderUris.get(0));
+			int pos = (lastUri == null) ? -1 : mProviderUris.indexOf(lastUri);
+			if (pos >= 0) {
+				mSpinnerUris.setSelection(pos);
+			}
+
+			this.mLastSelecedUri = Uri.parse(lastUri);
+			loadColumns(this.mLastSelecedUri);
+
 		} else { // Restore previous instance state
 			ColumnData columnsResult = savedInstanceState.getParcelable(BUNDLE_COLUMNS);
 			if (columnsResult != null) {
@@ -152,6 +173,20 @@ public class MainActivity extends BaseActivity implements OnClickListener, OnIte
 			}
 		}
 	}
+
+	@Override
+	protected void onPause () {
+		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor edit = sharedPref.edit();
+
+		edit.putString(STATE_CURRENTPATH, this.mLastSelecedUri.toString());
+
+		ColumnList checkedColumns = mColumnData.getColumnList().getCheckedColumns();
+		edit.putString(STATE_SELECTED_COLUMNS, checkedColumns.toString());
+		edit.commit();
+		super.onPause();
+	}
+
 
 	@Override
 	protected void onDestroy() {
@@ -219,10 +254,15 @@ public class MainActivity extends BaseActivity implements OnClickListener, OnIte
 		}
 	}
 
+	/** provider combobox-selection has changed */
 	private void onProviderSelected(int position) {
 		String uri = mProviderUris.get(position);
 		Uri selectedUri = Uri.parse(uri);
 		loadColumns(selectedUri);
+		if (!selectedUri.equals(mLastSelecedUri)) {
+			mLastSelectedColums = null;
+		}
+		mLastSelecedUri = selectedUri;
 	}
 
 	private void loadColumns(Uri uri) {
@@ -259,7 +299,7 @@ public class MainActivity extends BaseActivity implements OnClickListener, OnIte
 
 	private void toggleColumnTypes() {
 		if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
-			String message = String.format(getString(R.string.api_level), Build.VERSION.SDK_INT);
+			String message = String.format(getString(R.string.api_level), "" + Build.VERSION.SDK_INT);
 			new AlertDialog.Builder(mContext)//
 					.setTitle(R.string.info)//
 					.setMessage(message)//
@@ -342,9 +382,12 @@ public class MainActivity extends BaseActivity implements OnClickListener, OnIte
 		mAdapterUris.notifyDataSetChanged();
 	}
 
+	/** called after async task to load colums has finished */
 	private void setColumnData(ColumnData columnData) {
 		mColumnData = columnData;
 		mAdapterColumns.setColumnList(columnData.getColumnList());
+		mAdapterColumns.setSelection(mLastSelectedColums);
+
 		mAdapterColumns.notifyDataSetChanged();
 
 		int size = columnData.getColumnList().size();

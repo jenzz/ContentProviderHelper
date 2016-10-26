@@ -97,6 +97,22 @@ public class ColumnsAdapter extends BaseAdapter {
 		return viewHolder;
 	}
 
+	public int setSelection(String[] selectedColumNames) {
+		int checkCount = 0;
+		if ((selectedColumNames != null) && (selectedColumNames.length > 0)) {
+			this.mColumnList.setAllChecked(false);
+			for (String colName : selectedColumNames) {
+				Column col = this.mColumnList.findByName(colName);
+				if (col != null) {
+					checkCount++;
+					col.setChecked(true);
+				}
+			}
+			if (checkCount == 0) this.mColumnList.setAllChecked(true);
+		}
+		return checkCount;
+	}
+
 	private static class ViewHolder {
 		TextView number;
 		TextView name;

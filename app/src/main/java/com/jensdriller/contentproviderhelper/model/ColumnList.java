@@ -67,6 +67,19 @@ public class ColumnList implements Parcelable {
 		return checkedColumns;
 	}
 
+	public Column findByName(String name) {
+		if (name != null) {
+			ColumnList checkedColumns = new ColumnList();
+			for (Column column : mColumns) {
+				if (name.compareToIgnoreCase(column.getName()) == 0) {
+					return column;
+				}
+			}
+		}
+		return null;
+	}
+
+
 	public void clear() {
 		mColumns.clear();
 	}
