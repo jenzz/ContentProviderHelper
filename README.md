@@ -97,3 +97,7 @@ The following content providers are provided by default:
 * content://sms/sent
 * content://telephony/carriers
 * content://user_dictionary/words
+
+License
+-------
+This project is licensed under the [MIT License](https://raw.githubusercontent.com/jenzz/ContentProviderHelper/master/LICENSE).
