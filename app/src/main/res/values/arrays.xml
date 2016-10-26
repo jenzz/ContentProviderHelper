@@ -74,6 +74,7 @@
         <item>&lt;=</item>
         <item>&gt;</item>
         <item>&gt;=</item>
+        <item>like</item>
     </string-array>
     <string-array name="sort_by_order">
         <item>ASC</item>

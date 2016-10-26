@@ -1,12 +1,18 @@
 Content Provider Helper
 =======================
 
-Get it on Google Play: [com.jensdriller.contentproviderhelper](https://play.google.com/store/apps/details?id=com.jensdriller.contentproviderhelper)
-
-Requires [ActionBarSherlock](http://actionbarsherlock.com) and the latest [android-support-v4.jar](http://developer.android.com/tools/support-library/index.html) library.
+License: unknown (see http://programmers.stackexchange.com/a/26652/9007)
 
 What's New
 ----------
+
+### v1.2.0:
+
+* forked from [jenzz/ContentProviderHelper](https://github.com/jenzz/ContentProviderHelper)
+* refactored from eclipse-build to android-studio/gradle build.
+* Replaced AppSherloc with AppCompat.
+* Removed permission "internet" togehter with capability to automatcally send error reports to the program author 
+
 
 ### v1.1.0:
 
