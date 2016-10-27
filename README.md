@@ -1,17 +1,31 @@
 Content Provider Helper
 =======================
 
+... is a frontend to discover/view/query data of android content providers.
+
+[Original](https://github.com/jenzz/ContentProviderHelper) : Copyright (c) 2014-2016 Jens Driller under [MIT license](LICENSE-old-mit-jenzz)
+[Improvements](https://github.com/k3b/ContentProviderHelper) : Copyright (c) 2015-2016 k3b under [GNU GENERAL PUBLIC LICENSE Version 3 or later](LICENSE)
+
 Description
 -----------
 
-With Content Provider Helper (or CPH) a developer can interactivly
-discover and query the data of
-[android-s content providers](https://developer.android.com/guide/topics/providers/content-providers.html)
-similar to querying a database table.
+Android content-providers are similar to database-tables. 
+They have a name (aka "content:" uri), 
+columns and they can be queried similar to Sql.
 
-You can add and delete your own content: URIs manually or search for all available content providers on the device.
+Android uses 
+[https://developer.android.com/guide/topics/providers/content-providers.html content-providers]
+as api to manage global accessable data (i.e. Images, Telephone-book, SMS, ...).
+
+ContentProviderHelper is a frontend to query installed content-providers.
+
+You can add and delete your own content URIs manually or search for all available content providers on the device.
 
 App permissions are set generously to provide maximum compatibility.
+
+Requirements: Android-2.2 (api-8) or newer. (tested with android-2.2, 4.2, 4.4)
+
+Program enhancements as merge-request are welcome.
 
 The following content providers are provided by default:
 
@@ -78,12 +92,12 @@ The following content providers are provided by default:
 What's New
 ----------
 
-### v1.3.0:
+### v1.3.0: (to be released in fdroid appstore, soon)
 
-* App is now under [MIT License](https://raw.githubusercontent.com/jenzz/ContentProviderHelper/master/LICENSE)
-* updated build tools 24.0.2
-* changed appID to de.k3b.android.contentproviderhelper
-* restore last used contentprovider+Fields on app load
+* improvements: restore last used contentprovider+Fields in "on app load"
+* updated to gradle-2.14.1/build tools 24.0.2/java8/AndroidStudio-2.2
+* changed appID from com.jensdriller.contentproviderhelper to de.k3b.android.contentproviderhelper
+* changed original App License from [MIT](https://raw.githubusercontent.com/jenzz/ContentProviderHelper/master/LICENSE) to [GPL-v3+](https://raw.githubusercontent.com/k3b/ContentProviderHelper/master/LICENSE) to allow adding gpl-v3 code.
 
 ### v1.2.0: (20150529 not published due to unknown license)
 
