@@ -37,7 +37,7 @@ public class Database extends SQLiteOpenHelper {
 		try {
 			db.execSQL(DB_CREATE);
 		} catch (SQLiteException e) {
-			ContentProviderHelper.handleException(mContext, e, true);
+			ContentProviderHelper.handleException(mContext, e, "Database.onCreate " + DB_CREATE, true);
 		}
 	}
 
@@ -47,7 +47,7 @@ public class Database extends SQLiteOpenHelper {
 			db.execSQL(DB_DROP);
 			onCreate(db);
 		} catch (SQLException e) {
-			ContentProviderHelper.handleException(mContext, e, true);
+			ContentProviderHelper.handleException(mContext, e, "Database.onUpgrade " + DB_DROP, true);
 		}
 	}
 
@@ -56,17 +56,18 @@ public class Database extends SQLiteOpenHelper {
 		SQLiteDatabase db = null;
 		Cursor cursor = null;
 
+        final String sql = "SELECT * FROM " + TABLE_NAME;
 		try {
 			db = getReadableDatabase();
 
-			cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+            cursor = db.rawQuery(sql, null);
 			if (cursor.moveToFirst()) {
 				do {
 					uris.add(cursor.getString(cursor.getColumnIndex(COLUMN_URI)));
 				} while (cursor.moveToNext());
 			}
 		} catch (SQLException e) {
-			ContentProviderHelper.handleException(mContext, e, true);
+			ContentProviderHelper.handleException(mContext, e, "Database.getAllUris " + sql, true);
 		} finally {
 			if (cursor != null) {
 				cursor.close();
@@ -90,7 +91,7 @@ public class Database extends SQLiteOpenHelper {
 			values.put(COLUMN_URI, uri);
 			id = db.insert(TABLE_NAME, null, values);
 		} catch (SQLException e) {
-			ContentProviderHelper.handleException(mContext, e, true);
+			ContentProviderHelper.handleException(mContext, e, "Database.insert " + uri, true);
 		} finally {
 			if (db != null) {
 				db.close();
@@ -109,7 +110,7 @@ public class Database extends SQLiteOpenHelper {
 
 			count = db.delete(TABLE_NAME, COLUMN_URI + " = ?", new String[] { uri });
 		} catch (SQLiteException e) {
-			ContentProviderHelper.handleException(mContext, e, true);
+			ContentProviderHelper.handleException(mContext, e, "Database.delete " + uri, true);
 		} finally {
 			if (db != null) {
 				db.close();

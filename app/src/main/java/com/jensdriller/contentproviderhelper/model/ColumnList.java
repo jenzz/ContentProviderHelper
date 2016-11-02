@@ -45,6 +45,18 @@ public class ColumnList implements Parcelable {
 		return false;
 	}
 
+	public String toString() {
+		StringBuffer result = new StringBuffer();
+		for (Column column : mColumns) {
+			if (column.isChecked()) {
+				if (result.length() > 0) result.append(", ");
+
+				result.append(column.getName());
+			}
+		}
+		return result.toString();
+	}
+
 	public ColumnList getCheckedColumns() {
 		ColumnList checkedColumns = new ColumnList();
 		for (Column column : mColumns) {
@@ -54,6 +66,19 @@ public class ColumnList implements Parcelable {
 		}
 		return checkedColumns;
 	}
+
+	public Column findByName(String name) {
+		if (name != null) {
+			ColumnList checkedColumns = new ColumnList();
+			for (Column column : mColumns) {
+				if (name.compareToIgnoreCase(column.getName()) == 0) {
+					return column;
+				}
+			}
+		}
+		return null;
+	}
+
 
 	public void clear() {
 		mColumns.clear();

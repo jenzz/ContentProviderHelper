@@ -55,7 +55,7 @@ public abstract class DialogAsyncTask<Params, Progress, Result> extends AsyncTas
 		super.onPostExecute(result);
 
 		if (mException != null) {
-			ContentProviderHelper.handleException(mContext, mException, false);
+			ContentProviderHelper.handleException(mContext, mException, "DialogAsyncTask.onPostExecute", false);
 			if (mExceptionListener != null) {
 				mExceptionListener.onException(mException);
 			}

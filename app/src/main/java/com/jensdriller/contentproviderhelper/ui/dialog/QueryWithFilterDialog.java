@@ -67,25 +67,36 @@ public class QueryWithFilterDialog extends DialogFragment {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						StringBuffer debugSql = new StringBuffer();
 						Intent intent = new Intent(getActivity(), ResultActivity.class);
 						intent.putExtra(ResultActivity.INTENT_EXTRA_URI, uri);
 						intent.putExtra(ResultActivity.INTENT_EXTRA_COLUMNS, checkedColumns);
+						debugSql.append("SELECT ")
+								.append(checkedColumns.toString())
+								.append("\n\tFROM ").append(uri);
 
 						String whereValue = txtWhere.getText().toString();
 						if (!TextUtils.isEmpty(whereValue)) {
 							String whereOperator = spinnerWhereOperator.getSelectedItem().toString();
-							intent.putExtra(ResultActivity.INTENT_EXTRA_WHERE, spinnerColumns.getSelectedItem().toString() + " " + whereOperator + " " + whereValue);
+							final String whereFilter = spinnerColumns.getSelectedItem().toString() + " " + whereOperator + " " + whereValue;
+							intent.putExtra(ResultActivity.INTENT_EXTRA_WHERE, whereFilter);
+							debugSql.append("\n\tWHERE ")
+									.append(whereFilter);
 						}
 
 						String sortByColumn = spinnerSortByColumns.getSelectedItem().toString();
 						if (!TextUtils.isEmpty(sortByColumn)) {
 							String sortByOrder = spinnerSortByOrder.getSelectedItem().toString();
 							intent.putExtra(ResultActivity.INTENT_EXTRA_SORT_BY, sortByColumn + " " + sortByOrder);
+							debugSql.append("\n\tORDER BY  ")
+									.append(sortByOrder);
 						}
 
 						String limit = txtLimit.getText().toString();
 						if (!TextUtils.isEmpty(limit)) {
 							intent.putExtra(ResultActivity.INTENT_EXTRA_LIMIT, limit);
+							debugSql.append("\n\tLIMIT ")
+									.append(limit);
 						}
 
 						startActivity(intent);
