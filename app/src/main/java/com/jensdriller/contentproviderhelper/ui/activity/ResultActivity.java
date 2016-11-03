@@ -21,6 +21,8 @@ import com.jensdriller.contentproviderhelper.task.LoadResultsTask;
 import com.jensdriller.contentproviderhelper.ui.dialog.ProgressDialogFragment;
 import com.jensdriller.contentproviderhelper.ui.dialog.ProgressDialogFragment.SimpleListener;
 
+import de.k3b.android.util.ErrorHandler;
+
 public class ResultActivity extends BaseActivity implements ExceptionListener {
 
 	public static final String RESULTS_FILE_NAME = "ContentProviderHelper.html";
@@ -181,7 +183,8 @@ public class ResultActivity extends BaseActivity implements ExceptionListener {
 
 			@Override
 			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-				Toast.makeText(mContext, description + "(" + errorCode + ")", Toast.LENGTH_SHORT).show();
+				ErrorHandler.handleException(mContext, null, description + "(" + errorCode + ")", true);
+			
 			}
 		});
 

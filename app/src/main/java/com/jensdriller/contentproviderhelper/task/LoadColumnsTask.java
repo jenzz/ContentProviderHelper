@@ -14,7 +14,7 @@ import com.jensdriller.contentproviderhelper.model.ColumnList;
 public class LoadColumnsTask extends DialogAsyncTask<Uri, Void, ColumnData> {
 
 	public LoadColumnsTask(Context context) {
-		super(context);
+		super(context, "");
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -26,6 +26,7 @@ public class LoadColumnsTask extends DialogAsyncTask<Uri, Void, ColumnData> {
 		Cursor cursor = null;
 
 		try {
+			mDebugContext = params[0].toString();
 			cursor = mContext.getContentResolver().query(params[0], null, null, null, null);
 
 			if (cursor == null) {

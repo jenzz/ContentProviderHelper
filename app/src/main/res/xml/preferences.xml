@@ -12,11 +12,9 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_category_miscellaneous" >
         <CheckBoxPreference
-            android:defaultValue="@string/preferences_default_acra_enabled"
-            android:key="@string/preferences_key_acra_enabled"
-            android:summaryOff="@string/preferences_acra_disabled"
-            android:summaryOn="@string/preferences_acra_enabled"
-            android:title="@string/preferences_acra_title" />
+            android:defaultValue="@string/preferences_default_errorlog_enabled"
+            android:key="@string/preferences_key_errorlog_enabled"
+            android:title="@string/preferences_errorlog_title" />
 
         <Preference
             android:key="@string/preferences_key_build_version"

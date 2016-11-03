@@ -25,6 +25,9 @@
         <item>content://icc/adn</item>
         <item>content://icc/fdn</item>
         <item>content://icc/sdn</item>
+
+        <item>content://media/external/file</item>
+
         <item>content://media/internal/audio/media</item>
         <item>content://media/external/audio/media</item>
         <item>content://media/internal/audio/albums</item>

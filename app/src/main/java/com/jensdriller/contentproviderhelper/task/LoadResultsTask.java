@@ -30,7 +30,7 @@ public class LoadResultsTask extends DialogAsyncTask<Uri, Void, Result> {
 	private SQLParams mSqlParams;
 
 	public LoadResultsTask(Context context, ColumnList columnList, SQLParams sqlParams) {
-		super(context);
+		super(context, "");
 		mColumnList = columnList;
 		mSqlParams = sqlParams;
 	}
@@ -44,6 +44,7 @@ public class LoadResultsTask extends DialogAsyncTask<Uri, Void, Result> {
 		Cursor cursor = null;
 
 		try {
+			mDebugContext = params[0].toString();
 			int len = mColumnList.size();
 			String[] projection = new String[len];
 			for (int i = 0; i < len; i++) {

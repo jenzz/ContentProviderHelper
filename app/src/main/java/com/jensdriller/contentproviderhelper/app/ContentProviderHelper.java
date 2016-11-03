@@ -41,11 +41,4 @@ public class ContentProviderHelper extends Application {
 		}
 	}
 
-	public static void handleException(Context context, Exception e, String callContext, boolean sendReport) {
-		e.printStackTrace();
-		Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
-		if (sendReport) {
-			// ACRA.getErrorReporter().handleException(e);
-		}
-	}
 }

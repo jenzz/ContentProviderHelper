@@ -5,12 +5,14 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Build;
 
-import com.jensdriller.contentproviderhelper.app.ContentProviderHelper;
 import com.jensdriller.contentproviderhelper.ui.dialog.ProgressDialogFragment;
+
+import de.k3b.android.util.ErrorHandler;
 
 public abstract class DialogAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
 
 	protected Context mContext;
+	protected String mDebugContext;
 	protected Exception mException;
 	protected ExceptionListener mExceptionListener;
 
@@ -20,8 +22,9 @@ public abstract class DialogAsyncTask<Params, Progress, Result> extends AsyncTas
 		void onException(Exception e);
 	}
 
-	public DialogAsyncTask(Context context) {
+	public DialogAsyncTask(Context context, String debugContext) {
 		mContext = context;
+		mDebugContext = debugContext;
 	}
 
 	public void setExceptionListener(ExceptionListener exceptionListener) {
@@ -55,7 +58,7 @@ public abstract class DialogAsyncTask<Params, Progress, Result> extends AsyncTas
 		super.onPostExecute(result);
 
 		if (mException != null) {
-			ContentProviderHelper.handleException(mContext, mException, "DialogAsyncTask.onPostExecute", false);
+			ErrorHandler.handleException(mContext, mException, getClass().getSimpleName() + ".onPostExecute : '" + mDebugContext + "'", true);
 			if (mExceptionListener != null) {
 				mExceptionListener.onException(mException);
 			}

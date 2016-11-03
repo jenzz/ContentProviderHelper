@@ -11,11 +11,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
 import android.net.Uri;
+import android.os.Build;
 
 public class SearchProvidersTask extends DialogAsyncTask<Uri, Void, List<String>> {
 
 	public SearchProvidersTask(Context context) {
-		super(context);
+		super(context, "");
 	}
 
 	@Override
@@ -28,7 +29,9 @@ public class SearchProvidersTask extends DialogAsyncTask<Uri, Void, List<String>
 				ProviderInfo[] providers = pack.providers;
 				if (providers != null) {
 					for (ProviderInfo provider : providers) {
-						contentProviders.add("content://" + provider.authority);
+						if (isEnabled(provider)) {
+							contentProviders.add("content://" + provider.authority);
+						}
 					}
 				}
 			}
@@ -52,6 +55,13 @@ public class SearchProvidersTask extends DialogAsyncTask<Uri, Void, List<String>
 		});
 
 		return contentProviders;
+	}
+
+	private boolean isEnabled(ProviderInfo provider) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			return provider.exported && provider.isEnabled();
+		}
+		return true;
 	}
 
 }
