@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <!-- where [_id] -->
+        <TextView
+            android:id="@+id/where_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/where" />
+
+        <Spinner
+            android:id="@+id/spinner_columns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignBaseline="@id/where_label"
+            android:layout_toRightOf="@id/where_label" />
+
+    <!-- [=] [      ] -->
+
+        <Spinner
+            android:id="@+id/spinner_where_operator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/where_label"
+            android:layout_alignParentLeft="true"
+            android:entries="@array/where_clause" />
+
+        <EditText
+            android:id="@+id/equals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/where_label"
+            android:layout_toRightOf="@id/spinner_where_operator"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/equals"
+            android:layout_below="@id/equals"
+            android:paddingLeft="5dp"
+            android:text="@string/mark_strings" />
+
+    <!-- Sort by [_id] [ASC] -->
+
+        <TextView
+            android:id="@+id/sort_by_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/comment"
+            android:layout_alignParentLeft="true"
+            android:text="@string/sort_by" />
+
+        <Spinner
+            android:id="@+id/spinner_sort_by_column"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/sort_by_label"
+            android:layout_below="@id/comment"
+            android:layout_toLeftOf="@+id/spinner_sort_by_order"
+            android:layout_toRightOf="@id/sort_by_label" />
+
+        <Spinner
+            android:id="@id/spinner_sort_by_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/comment"
+            android:layout_alignBaseline="@id/sort_by_label"
+            android:layout_alignParentRight="true"
+            android:entries="@array/sort_by_order" />
+
+    <!-- Limit [     ] -->
+        <TextView
+            android:id="@+id/limit_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner_sort_by_column"
+            android:layout_alignParentLeft="true"
+            android:text="@string/limit" />
+
+        <EditText
+            android:id="@+id/limit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner_sort_by_column"
+            android:layout_alignBaseline="@id/limit_label"
+            android:layout_toRightOf="@id/limit_label"
+            android:inputType="number" />
+</RelativeLayout>

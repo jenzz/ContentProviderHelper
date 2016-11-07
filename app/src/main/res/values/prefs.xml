@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="preferences_category_theme">Theme</string>
+    <string name="preferences_category_miscellaneous">Miscellaneous</string>
+    <string name="preferences_category_source_code">Source Code</string>
+    <string name="preferences_build_version">Build Version</string>
+    <string name="preferences_key_theme">theme</string>
+    <string name="preferences_key_build_version">build_version</string>
+    <string name="preferences_key_github">github</string>
+    <string name="preferences_theme_title">Theme</string>
+    <string name="preferences_theme_summary">Current: %1$s</string>
+    <string name="preferences_theme_light">Light</string>
+    <string name="preferences_theme_light_dark_action_bar">Light (Dark ActionBar)</string>
+    <string name="preferences_theme_dark">Dark</string>
+    <string name="preferences_default_theme">@string/preferences_theme_light_dark_action_bar</string>
+    <string name="preferences_github_title">Homepage at github</string>
+    <string name="preferences_github_summary">https://github.com/k3b/ContentProviderHelper</string>
+
+    <string name="preferences_errorlog_title">Copy errormessage to Clipboard</string>
+    <string name="preferences_key_errorlog_enabled">errorlog.enabled</string>
+    <string name="preferences_default_errorlog_enabled">false</string>
+</resources>

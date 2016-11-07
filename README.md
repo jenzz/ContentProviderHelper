@@ -1,34 +1,31 @@
 Content Provider Helper
 =======================
 
-Get it on Google Play: [com.jensdriller.contentproviderhelper](https://play.google.com/store/apps/details?id=com.jensdriller.contentproviderhelper)
+... is a frontend to discover/view/query data of android content providers.
 
-Requires [ActionBarSherlock](http://actionbarsherlock.com) and the latest [android-support-v4.jar](http://developer.android.com/tools/support-library/index.html) library.
-
-What's New
-----------
-
-### v1.1.0:
-
-- Choose your theme: Light / Dark / Light (Dark ActionBar)
-
-- Fixed OutOfMemory errors on lower spec devices
-
-- Query content providers with more complex SQL queries
-
-- Save & Share query results as HTML page
-
-### v1.0.0:
-
-- Initial release
+[Original](https://github.com/jenzz/ContentProviderHelper) : Copyright (c) 2014-2016 Jens Driller under [MIT license](LICENSE-old-mit-jenzz)
+[Improvements](https://github.com/k3b/ContentProviderHelper) : Copyright (c) 2015-2016 k3b under [GNU GENERAL PUBLIC LICENSE Version 3 or later](LICENSE)
 
 Description
 -----------
 
-This app helps developers to discover and query content providers.
-You can add and delete your own URIs manually or search for all available content providers on the device.
+Android content-providers are similar to database-tables. 
+They have a name (aka "content:" uri), 
+columns and they can be queried similar to Sql.
+
+Android uses 
+[https://developer.android.com/guide/topics/providers/content-providers.html content-providers]
+as api to manage global accessable data (i.e. Images, Telephone-book, SMS, ...).
+
+ContentProviderHelper is a frontend to query installed content-providers.
+
+You can add and delete your own content URIs manually or search for all available content providers on the device.
 
 App permissions are set generously to provide maximum compatibility.
+
+Requirements: Android-2.2 (api-8) or newer. (tested with android-2.2, 4.2, 4.4)
+
+Program enhancements as merge-request are welcome.
 
 The following content providers are provided by default:
 
@@ -91,6 +88,38 @@ The following content providers are provided by default:
 * content://sms/sent
 * content://telephony/carriers
 * content://user_dictionary/words
+
+What's New
+----------
+
+### v1.3.0: (to be released in fdroid appstore, soon)
+
+* improvements: restore last used contentprovider+Fields in "on app load"
+* updated to gradle-2.14.1/build tools 24.0.2/java8/AndroidStudio-2.2
+* changed appID from com.jensdriller.contentproviderhelper to de.k3b.android.contentproviderhelper
+* changed original App License from [MIT](https://raw.githubusercontent.com/jenzz/ContentProviderHelper/master/LICENSE) to [GPL-v3+](https://raw.githubusercontent.com/k3b/ContentProviderHelper/master/LICENSE) to allow adding gpl-v3 code.
+
+### v1.2.0: (20150529 not published due to unknown license)
+
+* forked from [jenzz/ContentProviderHelper](https://github.com/jenzz/ContentProviderHelper)
+* refactored from eclipse-build to android-studio/gradle build.
+* Replaced AppSherloc with AppCompat.
+* Removed permission "internet" togehter with capability to automatcally send error reports to the program author
+* App now builds for Android-2.2 (api-8) and up
+
+### v1.1.0:
+
+- Choose your theme: Light / Dark / Light (Dark ActionBar)
+
+- Fixed OutOfMemory errors on lower spec devices
+
+- Query content providers with more complex SQL queries
+
+- Save & Share query results as HTML page
+
+### v1.0.0:
+
+- Initial release
 
 License
 -------
